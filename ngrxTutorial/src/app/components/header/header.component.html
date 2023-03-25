@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">NGRX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a routerLink=""  class="nav-link active" aria-current="page">Home</a>
+          <a routerLink="/counter" class="nav-link" >Counter</a>
+          <a routerLink="/post" class="nav-link" *ngIf="isAuthenticated$ | async">Post</a>
+          <a routerLink="/postne" class="nav-link" *ngIf="isAuthenticated$ | async">Post_NGRX_Entity</a>
+          <a routerLink="/postnd" class="nav-link" *ngIf="isAuthenticated$ | async">Post_NGRX_Data</a>
+          <a routerLink="/auth" class="nav-link" *ngIf="!(isAuthenticated$ | async)">Login</a>
+          <a routerLink="/auth/signup" class="nav-link" *ngIf="!(isAuthenticated$ | async)">
+            Sign-Up</a>
+          <a (click)="onLogOutCLick($event)" class="nav-link" *ngIf="isAuthenticated$ | async">
+            Log-Out</a>
+        </div>
+      </div>
+    </div>
+  </nav>

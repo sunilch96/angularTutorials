@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-12" style="border: 1px solid;">
+        <h4>Edit Post</h4>
+        <form [formGroup]="postFormGroup" (ngSubmit)="onAddFormSubmit()">
+            <div class="mb3">
+                <label>Title</label>
+                <input type="text" 
+                class="form-control"
+                formControlName="title"
+                >
+                <div  class="text-danger">
+                    {{showFormControlErrors('title')}}                    
+                </div>                
+            </div>
+            <div class="mb3">
+                <label>Description</label>
+                <textarea class="form-control"
+                formControlName="description"></textarea>
+                <div  class="text-danger">
+                    {{showFormControlErrors('description')}}                    
+                </div>
+            </div>
+            <div class="my-3">
+                <button class="btn btn-success" [disabled]="!postFormGroup.valid">Update Post</button>
+            </div>
+        </form>
+    </div>
+</div>

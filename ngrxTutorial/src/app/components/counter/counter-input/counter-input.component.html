@@ -1,0 +1,37 @@
+<div>
+    <div class="mb-3">
+        <label for="counterNumber" class="form-label">Counter Value</label>
+        <input type="number" 
+        class="form-control"
+        id="counterNumber"
+        aria-describedby="counterNumberHelp"
+        [(ngModel)]="countValue"
+        >
+        <div id="counterNumberHelp" class="form-text">Enter Counter Value to Add</div>
+      </div>
+      
+      <button 
+      (click)="onAddCounterClick()"
+      type="button" 
+      class="btn btn-primary">
+      Add To Counter
+    </button>
+
+    <hr>
+    <h4><small>Channel : </small>{{channelName$ | async}}</h4>
+    <div class="mb-3">
+        <label for="channelName" class="form-label">Channel Text</label>
+        <input type="text" 
+        class="form-control"
+        id="channelName"
+        [(ngModel)]="txtchannelName"
+        >       
+      </div>
+      
+      <button 
+      (click)="onChannelTextClick()"
+      type="button" 
+      class="btn btn-info">
+      Change Channel Text
+    </button>
+</div>

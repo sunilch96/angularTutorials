@@ -1,0 +1,5 @@
+NGRX STORE
+COUNTER
+CRUD
+
+NGRX Router STORE - from router to other, do some thing 

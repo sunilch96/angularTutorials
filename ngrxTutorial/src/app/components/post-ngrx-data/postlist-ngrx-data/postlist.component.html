@@ -1,0 +1,44 @@
+<div class="row">
+    <div class="col-md-12">
+        <div>
+            <a routerLink="/postnd/addpost" class="btn btn-primary">Add Post</a>
+        </div ><br>
+        <div class="col-md-4">
+            <router-outlet></router-outlet>
+        </div>
+
+        <br>
+        <h3>NGRX- Entity - Posts List</h3>       
+        <table class="table table-striped" *ngIf="postListNd$ | async as postData">
+           
+            <thead class="table-dark">
+                <tr>
+                    <td style="width: 5%;">Id</td>
+                    <td >Title</td>
+                    <td >Description</td>
+                    <td >Actions</td>
+                </tr>
+            </thead>
+
+            <tbody *ngFor="let item of postData; index as i">
+                <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.title}}</td>
+                    <td>{{item.description}}</td>                    
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" 
+                            class="btn btn-warning btn-sm"
+                            [routerLink]="['/postnd/editpost', item.id]" >Edit</button>
+                            <button type="button" 
+                            class="btn btn-danger btn-sm" (click)="deletePost($event, item.id)">Delete</button>
+                            <button type="button" 
+                            class="btn btn-info btn-sm" [routerLink]="['details', item.id]">Details</button>
+                          </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
